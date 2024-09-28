@@ -67,14 +67,15 @@ void sort_three(Node **stack_a)
 
 void sort_large_stack(Node **stack_a, Node **stack_b)
 {
-    while (*stack_a) {
-        Node *smallest = find_smallest(stack_a);
-        while (*stack_a != smallest) {
-            rotate_a(stack_a, 1); 
+        Node *smallest;
+        smallest = find_smallest(stack_a);
+    
+    while (*stack_a) 
+        {
+            while (*stack_a != smallest) 
+                rotate_a(stack_a, 1); 
         }
         push_b(stack_a, stack_b, 1);
-    }
-    while (*stack_b) {
+    while (*stack_b) 
         push_a(stack_a, stack_b, 1);
-    }
 }
